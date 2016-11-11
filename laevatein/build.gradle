@@ -1,6 +1,10 @@
 apply plugin: 'android-sdk-manager'
 apply plugin: 'com.android.library'
 
+// for jitpack
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.noboru-i'
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
