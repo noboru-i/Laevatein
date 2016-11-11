@@ -67,11 +67,7 @@ public class AlbumPhotoAdapter extends CursorAdapter {
         thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (item.isCapture()) {
-                    PhotoGridViewHelper.callCamera(context);
-                } else {
-                    PhotoGridViewHelper.callPreview(context, item, mCollection.asList());
-                }
+                check.toggle();
             }
         });
         check.setVisibility(item.isCapture() ? View.GONE : View.VISIBLE);
