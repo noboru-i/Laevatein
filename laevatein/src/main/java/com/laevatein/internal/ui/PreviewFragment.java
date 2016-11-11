@@ -7,14 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.amalgam.os.BundleUtils;
 import com.laevatein.R;
 import com.laevatein.internal.utils.PhotoMetadataUtils;
 import com.squareup.picasso.Picasso;
-
-import it.sephiroth.android.library.imagezoom.ImageViewTouch;
-import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
 
 /**
  * Created by hiroyuki.seto on 15/06/16.
@@ -41,14 +39,12 @@ public class PreviewFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ImageViewTouch image = (ImageViewTouch) getView().findViewById(R.id.l_image_zoom_view);
-        image.setDisplayType(ImageViewTouchBase.DisplayType.FIT_TO_SCREEN);
+        ImageView image = (ImageView) getView().findViewById(R.id.l_image_zoom_view);
         Uri uri = getArguments().getParcelable(ARGS_URI);
         Point size = PhotoMetadataUtils.getBitmapSize(getActivity().getContentResolver(), uri, getActivity());
         Picasso.with(getActivity()).load(uri).priority(Picasso.Priority.HIGH).resize(size.x, size.y).centerInside().into(image);
     }
 
     public void resetView() {
-        ((ImageViewTouch) getView()).resetMatrix();
     }
 }
