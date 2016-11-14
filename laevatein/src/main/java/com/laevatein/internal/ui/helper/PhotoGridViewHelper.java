@@ -135,7 +135,7 @@ public final class PhotoGridViewHelper {
         if (cause == null) {
             ErrorViewResources countSpec = spec.getCountErrorSpec();
             collection.add(uri);
-            if (collection.isCountOver() && !countSpec.isNoView()) {
+            if (collection.isCountOver()) {
                 ErrorViewUtils.showErrorView(activity, countSpec);
                 collection.remove(uri);
                 checkBox.setChecked(false);
